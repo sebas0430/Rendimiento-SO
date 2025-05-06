@@ -27,7 +27,7 @@ void *multiMatrix(void *variables) {
     int nH  = data->nH;  // Número total de hilos
     int N   = data->N;   // Tamaño de la matriz
     int ini = (data->N / data->nH) * data->idH;
-    int fin = (data->idH == data->nH - 1) ? data->N : ini + (data->N / data->nH);
+    int fin = (data->idH == data->nH - 1) ? data->N : ini + (data->N / data->nH); // divide los hilos 
     // Multiplicación de matrices
     for (int i = ini; i < fin; i++) {
         for (int j = 0; j < N; j++) {
