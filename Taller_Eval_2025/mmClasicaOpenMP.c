@@ -12,8 +12,8 @@
 //mB = Puntero a la matriz B.
 //mC = Puntero a la matriz resultado C.
 //D = Dimensión de las matrices (D x D).
-void multiMatrix(size_t *mA, size_t *mB, size_t *mC, int D) {
-    size_t Suma, *pA, *pB;
+void multiMatrix(double *mA, double *mB, double *mC, int D) {
+    double Suma, *pA, *pB;
 
     // Paralelismo con OpenMP
     #pragma omp parallel
@@ -50,9 +50,9 @@ int main(int argc, char *argv[]) {
     int TH = atoi(argv[2]); // Número de hilos a utilizar
 
     // Reserva de memoria para las matrices
-    size_t *matrixA = (size_t *)calloc(N * N, sizeof(size_t));
-    size_t *matrixB = (size_t *)calloc(N * N, sizeof(size_t));
-    size_t *matrixC = (size_t *)calloc(N * N, sizeof(size_t));
+    double *matrixA = (double *)calloc(N * N, sizeof(double));
+    double *matrixB = (double *)calloc(N * N, sizeof(double));
+    double *matrixC = (double *)calloc(N * N, sizeof(double));
     srand(time(NULL)); // Inicialización de la semilla para números aleatorios
 
     // Configuración del número de hilos para OpenMP
@@ -62,8 +62,8 @@ int main(int argc, char *argv[]) {
     iniMatrix(matrixA, matrixB, N);
 
     // Impresión de las matrices A y B (solo si el tamaño es pequeño)
-    impMatrix(matrixA, N);
-    impMatrix(matrixB, N);
+    impMatrix(matrixA,N);
+    impMatrix(matrixB,N);
 
     // Inicio de la medición del tiempo
     InicioMuestra();
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
     multiMatrix(matrixA, matrixB, matrixC, N);
 
     // Impresión de la matriz resultado C (solo si el tamaño es pequeño)
-    impMatrix(matrixC, N);
+    impMatrix(matrixC,N);
 
     // Fin de la medición del tiempo
     FinMuestra();
