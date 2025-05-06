@@ -26,9 +26,8 @@ void *multiMatrix(void *variables) {
     int idH = data->idH; // ID del hilo
     int nH  = data->nH;  // Número total de hilos
     int N   = data->N;   // Tamaño de la matriz
-    int ini = (N / nH) * idH;     // Índice inicial de filas a procesar
-    int fin = (N / nH) * (idH+1); // Índice final de filas a procesar
-
+    int ini = (data->N / data->nH) * data->idH;
+    int fin = (data->idH == data->nH - 1) ? data->N : ini + (data->N / data->nH);
     // Multiplicación de matrices
     for (int i = ini; i < fin; i++) {
         for (int j = 0; j < N; j++) {
@@ -67,8 +66,8 @@ int main(int argc, char *argv[]) {
 
     // Inicialización e impresión de matrices (comentado en iniMatrix)
     // iniMatrix(SZ);
-    impMatrix(SZ, mA);
-    impMatrix(SZ, mB);
+    impMatrix(mA, SZ);
+    impMatrix(mB, SZ);
 
     InicioMuestra(); // Inicia la medición de tiempo
 
@@ -92,7 +91,7 @@ int main(int argc, char *argv[]) {
 
     FinMuestra(); // Finaliza la medición de tiempo
     
-    impMatrix(SZ, mC); // Imprime la matriz resultante
+    impMatrix(mC, SZ); // Imprime la matriz resultante
 
     // Limpieza de recursos
     pthread_attr_destroy(&atrMM);

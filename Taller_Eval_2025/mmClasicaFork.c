@@ -67,12 +67,13 @@ int main(int argc, char *argv[]) {
 
             // Si el tamaño de la matriz es menor a 9, imprimir el resultado parcial
             if (N < 9) {
-                printf("\nChild PID %d calculated rows %d to %d:\n", getpid(), start_row, end_row - 1);
+                //printf("\nChild PID %d calculated rows %d to %d:\n", getpid(), start_row, end_row - 1);
                 for (int r = start_row; r < end_row; r++) {
                     for (int c = 0; c < N; c++) {
-                        printf(" %f ", matC[N * r + c]);
+                        matC[N * r + c];
+                        //printf(" %f ", matC[N * r + c]);
                     }
-                    printf("\n");
+                    //printf("\n");
                 }
             }
             exit(0); // Termina el proceso hijo

@@ -17,7 +17,7 @@ void FinMuestra() {
     fin.tv_usec -= inicio.tv_usec;
     fin.tv_sec  -= inicio.tv_sec;
     double tiempo = (double)(fin.tv_sec * 1000000 + fin.tv_usec);
-    printf("\n Tiempo: %9.0f \n", tiempo);
+    printf("%9.0f \n", tiempo);
 }
 
 // Inicializa matrices con valores aleatorios
