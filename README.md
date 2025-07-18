@@ -1,4 +1,4 @@
-# Taller Evaluacion de Rendimiento
+# Evaluacion de Rendimiento
 
 Este repositorio contiene un taller de evaluación de rendimiento de algoritmos de multiplicación de matrices en C, utilizando distintos modelos de paralelismo: POSIX Threads, OpenMP y procesos con `fork()`. Se va comparar el desempeño de cada enfoque en términos de tiempo de ejecución y eficiencia. Con el fin de poder analizar los algoritmos seriales y paralelos
 
